@@ -7,7 +7,7 @@ var paths = gulp.paths;
 var $ = require('gulp-load-plugins')();
 
 gulp.task('scripts', function () {
-  return gulp.src(paths.src + '/{app,components}/**/*.ts')
+  return gulp.src(paths.src + '/{app,partials}/**/*.ts')
     .pipe($.typescript())
     .on('error', function handleError(err) {
       console.error(err.toString());
