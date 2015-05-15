@@ -2,6 +2,13 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
   <div id="employees">
+
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon1"></span>
+      <input ng-model="search" type="text" class="form-control" placeholder="Search eg. by name etc." aria-describedby="sizing-addon1">
+    </div>
+    </br>
+
     <table class="table table-striped table-hover">
       <tbody>
         <tr>
@@ -12,7 +19,7 @@
           <th>ProjectName</th>
           <th></th>
         </tr>
-        <tr ng-repeat="employee in vm.employees">
+        <tr ng-repeat="employee in vm.employees|filter:search">
           <td>{{employee.FirstName}}</td>
           <td>{{employee.LastName}}</td>
           <td>{{employee.Office}}</td>
