@@ -29,7 +29,23 @@ module projectManagement {
           employee: employee,
         }
       });
+    }
 
+    public deleteEmployee(employee:Employee):void
+    {
+      this.employeeService.removeEmployee(this.employees, employee);
+      this.employees = this.employeeService.getEmployees();
+    }
+
+    public openNew()
+    {
+      var dialog = this.ngDialog.open({
+        template: 'app/partials/employees/new.html',
+        controller: InfoCtrl,
+        data: {
+          employees: this.employees,
+        }
+      });
     }
   }
 }

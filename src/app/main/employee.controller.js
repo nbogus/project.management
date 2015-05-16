@@ -24,6 +24,19 @@ var projectManagement;
                 }
             });
         };
+        EmployeeCtrl.prototype.deleteEmployee = function (employee) {
+            this.employeeService.removeEmployee(this.employees, employee);
+            this.employees = this.employeeService.getEmployees();
+        };
+        EmployeeCtrl.prototype.openNew = function () {
+            var dialog = this.ngDialog.open({
+                template: 'app/partials/employees/new.html',
+                controller: projectManagement.InfoCtrl,
+                data: {
+                    employees: this.employees
+                }
+            });
+        };
         return EmployeeCtrl;
     })();
     projectManagement.EmployeeCtrl = EmployeeCtrl;

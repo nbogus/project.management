@@ -14,17 +14,20 @@ module projectManagement{
 
     private initEmployeesData()
     {
-      this.employees = [<Employee>{UserName:'JoeDoe',Password:'password',
-        EmployeeInfo: <EmployeeInfo>{
+      this.employees = [<Employee>{UserName:'JoeDoe',Password:'password', EmployeeInfo: <EmployeeInfo>{
           FirstName:'Joe',LastName:'Doe',Office:'Cracow',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
-          EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"joe@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}}
+          EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"joe@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}},
+        <Employee>{UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
+          FirstName:'Adam',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
+          EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"asmith@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}}
       ];
-      this.saveToLocalStorage();
+      this.saveToLocalStorage(this.employees);
     }
 
-    private saveToLocalStorage()
+    private saveToLocalStorage(employees:Array<Employee>)
     {
-      this.localStorageService.set("employees", this.employees);
+      this.localStorageService.set("employees", employees);
+      return employees;
     }
 
     public getEmployees()
@@ -32,9 +35,13 @@ module projectManagement{
      return this.localStorageService.get("employees");
     }
 
-    public removeEmployee(employee:Employee)
+    public removeEmployee(employees:Array<Employee>,employee:Employee)
     {
+      var emp = this._.first(
+                        this._.filter(employees,(e:Employee)=>
+                                            {return e.UserName == employee.UserName;},employee));
 
+      this.saveToLocalStorage(this._.without(employees,emp));
     }
 
   }

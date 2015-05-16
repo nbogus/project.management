@@ -1,0 +1,34 @@
+<br c>
+  <div class="form-horizontal">
+
+    <span style="display: inline">
+      <label>UserName:</label> <input  class="form-control" type="text" ng-model="employee.Employee.UserName" />
+      <label>Password: </label><input  class="form-control" type="password" ng-model="employee.Employee.Password" />
+    </span>
+
+    <span style="display: inline-block">
+      <label>First Name:</label> <input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.FirstName" />
+      <label>Last Name: </label><input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.LastName" />
+    </span>
+    <span style="display: inline-block">
+      <label>Date Of Birth: </label><input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.DateOfBirth" />
+      <label>Start Date:  </label><input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.StartDate" />
+    </span>
+
+    <span style="display: inline-block">
+        <label>Position:  </label><input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.Position" />
+        <label>Office:  </label><input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.Office" />
+        <label>Department:  </label><input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.Department" />
+        <label>Team:  </label><input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.Team" />
+    </span>
+
+    <span style="display: inline-block">
+      <label>Employment Status:  </label><input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.EmploymentStatus" />
+      <label>Mobile Phone:  </label><input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.MobilePhone" />
+      <label>Email Address:  </label><input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.EmailAddress" />
+      <label>Address:  </label><input  class="form-control" type="text" ng-model="employee.Employee.EmployeeInfo.Address" />
+    </span>
+  </div>
+  </br>
+  <button ng-click="vm.addEmployee(employee) && vm.closeThisDialog('pol')" type="submit" class="btn btn-success">Submit</button>
+</form>
