@@ -6,9 +6,10 @@
 'use strict';
 
 module projectManagement {
-  angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap'])
+  angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap','ngDialog'])
     .controller('MainCtrl', MainCtrl)
     .controller('ProfileCtrl', ProfileCtrl)
+    .controller('InfoCtrl', InfoCtrl)
 
 
   .config(function ($routeProvider) {

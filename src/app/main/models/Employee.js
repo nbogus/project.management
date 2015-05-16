@@ -1,15 +1,15 @@
 ///<reference path="Project.ts"/>
+///<reference path="EmployeeInfo.ts"/>
 /**
  * Created by nbogusiewicz on 2015-05-15.
  */
 var projectManagement;
 (function (projectManagement) {
     var Employee = (function () {
-        function Employee(FirstName, LastName, Office, Position) {
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.Office = Office;
-            this.Position = Position;
+        function Employee(UserName, Password, EmployeeInfo) {
+            this.UserName = UserName;
+            this.Password = Password;
+            this.EmployeeInfo = EmployeeInfo;
         }
         return Employee;
     })();

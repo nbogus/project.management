@@ -5,7 +5,7 @@
 'use strict';
 var projectManagement;
 (function (projectManagement) {
-    angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap']).controller('MainCtrl', projectManagement.MainCtrl).controller('ProfileCtrl', projectManagement.ProfileCtrl).config(function ($routeProvider) {
+    angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'ngDialog']).controller('MainCtrl', projectManagement.MainCtrl).controller('ProfileCtrl', projectManagement.ProfileCtrl).controller('InfoCtrl', InfoCtrl).config(function ($routeProvider) {
         $routeProvider.when('/Profile', {
             templateUrl: 'app/partials/profile/profile.html',
             controller: 'ProfileCtrl'
