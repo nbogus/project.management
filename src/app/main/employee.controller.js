@@ -1,15 +1,21 @@
+///<reference path="services\employee.service.ts"/>
+/**
+ * Created by nbogusiewicz on 2015-05-16.
+ */
 ///<reference path="models\Employee.ts"/>
 ///<reference path="..\partials\employees\InfoCtrl.ts"/>
 'use strict';
 var projectManagement;
 (function (projectManagement) {
-    var MainCtrl = (function () {
+    var EmployeeCtrl = (function () {
         /* @ngInject */
-        function MainCtrl($scope, ngDialog) {
+        function EmployeeCtrl($scope, ngDialog, employeeService) {
             this.ngDialog = ngDialog;
+            this.employeeService = employeeService;
             $scope.vm = this;
+            this.employees = employeeService.getEmployees();
         }
-        MainCtrl.prototype.open = function (employee) {
+        EmployeeCtrl.prototype.open = function (employee) {
             var dialog = this.ngDialog.open({
                 template: 'app/partials/employees/info.html',
                 controller: projectManagement.InfoCtrl,
@@ -18,8 +24,8 @@ var projectManagement;
                 }
             });
         };
-        return MainCtrl;
+        return EmployeeCtrl;
     })();
-    projectManagement.MainCtrl = MainCtrl;
+    projectManagement.EmployeeCtrl = EmployeeCtrl;
 })(projectManagement || (projectManagement = {}));
-//# sourceMappingURL=main.controller.js.map
+//# sourceMappingURL=employee.controller.js.map

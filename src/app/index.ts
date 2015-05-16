@@ -2,15 +2,23 @@
 /// <reference path="../../bower_components/dt-jquery/jquery.d.ts" />
 ///<reference path="main\main.controller.ts"/>
 ///<reference path="partials\profile\profile.controller.ts"/>
+///<reference path="main\employee.controller.ts"/>
 
 'use strict';
 
 module projectManagement {
-  angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap','ngDialog'])
+  angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap','ngDialog','LocalStorageModule'])
+
+    .service('employeeService',EmployeeService)
+
     .controller('MainCtrl', MainCtrl)
     .controller('ProfileCtrl', ProfileCtrl)
     .controller('InfoCtrl', InfoCtrl)
+    .controller('EmployeeCtrl', EmployeeCtrl)
 
+    .config(['localStorageServiceProvider', function(localStorageServiceProvider){
+      localStorageServiceProvider.setPrefix('ls');
+    }])
 
   .config(function ($routeProvider) {
     $routeProvider
@@ -25,7 +33,7 @@ module projectManagement {
       })
       .when('/Employees', {
         templateUrl: 'app/partials/employees/employees.html',
-        controller: 'ProfileCtrl'
+        controller: 'EmployeeCtrl'
       })
       .when('/Email', {
         templateUrl: 'app/partials/email/email.html',
