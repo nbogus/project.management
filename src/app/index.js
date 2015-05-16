@@ -6,7 +6,7 @@
 'use strict';
 var projectManagement;
 (function (projectManagement) {
-    angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'ngDialog', 'LocalStorageModule']).service('employeeService', projectManagement.EmployeeService).controller('MainCtrl', projectManagement.MainCtrl).controller('ProfileCtrl', projectManagement.ProfileCtrl).controller('InfoCtrl', projectManagement.InfoCtrl).controller('EmployeeCtrl', projectManagement.EmployeeCtrl).config(['localStorageServiceProvider', function (localStorageServiceProvider) {
+    angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'ngDialog', 'LocalStorageModule', 'lodash']).service('employeeService', projectManagement.EmployeeService).controller('MainCtrl', projectManagement.MainCtrl).controller('ProfileCtrl', projectManagement.ProfileCtrl).controller('InfoCtrl', projectManagement.InfoCtrl).controller('EmployeeCtrl', projectManagement.EmployeeCtrl).config(['localStorageServiceProvider', function (localStorageServiceProvider) {
         localStorageServiceProvider.setPrefix('ls');
     }]).config(function ($routeProvider) {
         $routeProvider.when('/Profile', {

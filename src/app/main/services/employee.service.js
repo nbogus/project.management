@@ -6,8 +6,9 @@ var projectManagement;
 (function (projectManagement) {
     var EmployeeService = (function () {
         /* @ngInject */
-        function EmployeeService(localStorageService) {
+        function EmployeeService(localStorageService, _) {
             this.localStorageService = localStorageService;
+            this._ = _;
             this.initEmployeesData();
         }
         EmployeeService.prototype.initEmployeesData = function () {

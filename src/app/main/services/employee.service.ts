@@ -6,7 +6,7 @@ module projectManagement{
   export class EmployeeService{
 
     /* @ngInject */
-    constructor( private localStorageService) {
+    constructor( private localStorageService, private _: any) {
       this.initEmployeesData();
     }
 
