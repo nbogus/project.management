@@ -7,7 +7,7 @@ var projectManagement;
         function InfoCtrl($scope) {
             this.$scope = $scope;
             $scope.vm = this;
-            this.Employee = this.$scope.ngDialogData.employee;
+            this.Employee = this.$scope.ngDialogData.employee.Employee;
         }
         return InfoCtrl;
     })();

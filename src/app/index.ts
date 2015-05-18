@@ -43,6 +43,10 @@ module projectManagement {
         templateUrl: 'app/partials/chat/chat.html',
         controller: 'MainCtrl'
       })
+      .when('/Projects', {
+        templateUrl: 'app/partials/projects/projects.html',
+        controller: 'MainCtrl'
+      })
       .when('/', {
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'

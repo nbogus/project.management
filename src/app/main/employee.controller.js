@@ -10,12 +10,17 @@ var projectManagement;
     var EmployeeCtrl = (function () {
         /* @ngInject */
         function EmployeeCtrl($scope, ngDialog, employeeService) {
+            this.$scope = $scope;
             this.ngDialog = ngDialog;
             this.employeeService = employeeService;
             $scope.vm = this;
-            this.employees = employeeService.getEmployees();
+            this.employees = this.employeeService.getEmployees() || [];
         }
-        EmployeeCtrl.prototype.open = function (employee) {
+        EmployeeCtrl.prototype.get = function () {
+            this.employees = [];
+            this.employees = this.employeeService.getEmployees();
+        };
+        EmployeeCtrl.prototype.openInfo = function (employee) {
             var dialog = this.ngDialog.open({
                 template: 'app/partials/employees/info.html',
                 controller: projectManagement.InfoCtrl,
@@ -31,11 +36,13 @@ var projectManagement;
         EmployeeCtrl.prototype.openNew = function () {
             var dialog = this.ngDialog.open({
                 template: 'app/partials/employees/new.html',
-                controller: projectManagement.InfoCtrl,
-                data: {
-                    employees: this.employees
-                }
+                controller: EmployeeCtrl
             });
+        };
+        EmployeeCtrl.prototype.addEmployee = function (employee) {
+            this.employeeService.addEmployee(employee);
+            this.$scope.closeThisDialog(employee);
+            this.employees = this.employeeService.getEmployees();
         };
         return EmployeeCtrl;
     })();

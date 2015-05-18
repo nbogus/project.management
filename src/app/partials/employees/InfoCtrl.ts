@@ -7,7 +7,7 @@ module projectManagement {
     /* @ngInject */
     constructor (public $scope:any) {
       $scope.vm = this;
-      this.Employee = this.$scope.ngDialogData.employee;
+      this.Employee = this.$scope.ngDialogData.employee.Employee;
     }
     public Employee:Employee;
 

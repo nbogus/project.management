@@ -10,18 +10,24 @@ module projectManagement {
 
   export class EmployeeCtrl {
     /* @ngInject */
-    constructor ($scope,
-                 private ngDialog:any,
+    constructor(public $scope:any,
+                private ngDialog:any,
                 private employeeService:EmployeeService) {
       $scope.vm = this;
 
-      this.employees = employeeService.getEmployees();
+       this.employees = this.employeeService.getEmployees() || [];
     }
 
     public employees:Array<Employee>;
 
-    public open(employee):void
+
+    public get()
     {
+      this.employees =[];
+      this.employees = this.employeeService.getEmployees();
+    }
+
+    public openInfo(employee):void {
       var dialog = this.ngDialog.open({
         template: 'app/partials/employees/info.html',
         controller: InfoCtrl,
@@ -31,21 +37,24 @@ module projectManagement {
       });
     }
 
-    public deleteEmployee(employee:Employee):void
-    {
+    public deleteEmployee(employee:Employee):void {
       this.employeeService.removeEmployee(this.employees, employee);
       this.employees = this.employeeService.getEmployees();
     }
 
-    public openNew()
-    {
+    public openNew() {
       var dialog = this.ngDialog.open({
         template: 'app/partials/employees/new.html',
-        controller: InfoCtrl,
-        data: {
-          employees: this.employees,
-        }
+        controller: EmployeeCtrl
       });
     }
+
+    public addEmployee(employee:Employee) {
+
+      this.employeeService.addEmployee(employee);
+      this.$scope.closeThisDialog(employee);
+      this.employees = this.employeeService.getEmployees();
+    }
   }
+
 }
