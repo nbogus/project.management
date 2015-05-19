@@ -18,6 +18,9 @@ module projectManagement {
        this.employees = this.employeeService.getEmployees() || [];
     }
 
+    labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+    data = [300, 500, 100];
+
     public employees:Array<Employee>;
 
 

@@ -12,5 +12,7 @@ module projectManagement {
                  private employeeService:EmployeeService) {
       $scope.vm = this;
     }
+
+
   }
 }

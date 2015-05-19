@@ -13,6 +13,8 @@ var projectManagement;
             this.$scope = $scope;
             this.ngDialog = ngDialog;
             this.employeeService = employeeService;
+            this.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+            this.data = [300, 500, 100];
             $scope.vm = this;
             this.employees = this.employeeService.getEmployees() || [];
         }

@@ -9,7 +9,7 @@
 'use strict';
 
 module projectManagement {
-  angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap','ngDialog','LocalStorageModule','lodash'])
+  angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap','ngDialog','LocalStorageModule','lodash','chart.js'])
 
     .service('employeeService',EmployeeService)
     .service('emailService',EmailService)

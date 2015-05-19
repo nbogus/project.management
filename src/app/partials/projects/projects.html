@@ -1,43 +1,23 @@
 <div ng-include="'app/partials/navbar/navbar.html'"></div>
 <accordion close-others="oneAtATime">
-  <accordion-group heading="Project1 Details">
+  <accordion-group heading="Project">
+    <label><strong>Project Description</strong></label>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu erat eu risus laoreet auctor. Integer molestie, magna at ultricies eleifend, leo risus ornare velit, ut eleifend nunc arcu et elit. Fusce pellentesque libero sit amet ante scelerisque blandit. Curabitur luctus felis sit amet ligula laoreet, sed dictum nulla mollis. Morbi auctor justo sit amet tortor pretium, laoreet auctor velit semper. Maecenas faucibus mauris sed purus dapibus, at aliquam arcu rutrum. Maecenas sed volutpat metus. Donec ligula turpis, scelerisque sit amet nibh in, elementum imperdiet mi. Etiam facilisis felis dui, sed suscipit justo auctor in. Donec ornare ullamcorper nunc in luctus. Phasellus lacinia lorem ac nisl scelerisque aliquam. Phasellus elementum convallis egestas. Curabitur sodales elit id velit dignissim venenatis.</p>
 
     <span style="display: inline-block">
-      <accordion-group heading="Dynamic Body Content">
+      <accordion-group heading="Project participants">
+        <ul ng-repeat="employee in vm.employees">
+          <li>{{employee.Employee.EmployeeInfo.FirstName + employee.Employee.EmployeeInfo.LastName}}</li>
+        </ul>
+      </accordion-group>
+    </span>
+    <span style="display: inline-block">
+      <accordion-group heading="Project costs">
         <p>The body of the accordion group grows to fit the contents</p>
       </accordion-group>
     </span>
     <span style="display: inline-block">
-      <accordion-group heading="Dynamic Body Content">
-        <p>The body of the accordion group grows to fit the contents</p>
-      </accordion-group>
-    </span>
-    <span style="display: inline-block">
-      <accordion-group heading="Dynamic Body Content">
-        <p>The body of the accordion group grows to fit the contents</p>
-      </accordion-group>
-    </span>
-  </accordion-group>
-</accordion>
-
-<accordion close-others="oneAtATime">
-  <accordion-group heading="Project1 Details">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu erat eu risus laoreet auctor. Integer molestie, magna at ultricies eleifend, leo risus ornare velit, ut eleifend nunc arcu et elit. Fusce pellentesque libero sit amet ante scelerisque blandit. Curabitur luctus felis sit amet ligula laoreet, sed dictum nulla mollis. Morbi auctor justo sit amet tortor pretium, laoreet auctor velit semper. Maecenas faucibus mauris sed purus dapibus, at aliquam arcu rutrum. Maecenas sed volutpat metus. Donec ligula turpis, scelerisque sit amet nibh in, elementum imperdiet mi. Etiam facilisis felis dui, sed suscipit justo auctor in. Donec ornare ullamcorper nunc in luctus. Phasellus lacinia lorem ac nisl scelerisque aliquam. Phasellus elementum convallis egestas. Curabitur sodales elit id velit dignissim venenatis.</p>
-
-    <span style="display: inline-block">
-      <accordion-group heading="Dynamic Body Content">
-        <p>The body of the accordion group grows to fit the contents</p>
-      </accordion-group>
-    </span>
-    <span style="display: inline-block">
-      <accordion-group heading="Dynamic Body Content">
-        <p>The body of the accordion group grows to fit the contents</p>
-      </accordion-group>
-    </span>
-    <span style="display: inline-block">
-      <accordion-group heading="Dynamic Body Content">
-        <p>The body of the accordion group grows to fit the contents</p>
+      <accordion-group heading="Project progress">
       </accordion-group>
     </span>
   </accordion-group>
