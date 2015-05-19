@@ -3,10 +3,12 @@
 ///<reference path="main\main.controller.ts"/>
 ///<reference path="partials\profile\profile.controller.ts"/>
 ///<reference path="main\employee.controller.ts"/>
+///<reference path="main\services\email.service.ts"/>
+///<reference path="main\mail.controller.ts"/>
 'use strict';
 var projectManagement;
 (function (projectManagement) {
-    angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'ngDialog', 'LocalStorageModule', 'lodash']).service('employeeService', projectManagement.EmployeeService).controller('MainCtrl', projectManagement.MainCtrl).controller('ProfileCtrl', projectManagement.ProfileCtrl).controller('InfoCtrl', projectManagement.InfoCtrl).controller('EmployeeCtrl', projectManagement.EmployeeCtrl).config(['localStorageServiceProvider', function (localStorageServiceProvider) {
+    angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'ngDialog', 'LocalStorageModule', 'lodash']).service('employeeService', projectManagement.EmployeeService).service('emailService', projectManagement.EmailService).controller('MainCtrl', projectManagement.MainCtrl).controller('ProfileCtrl', projectManagement.ProfileCtrl).controller('InfoCtrl', projectManagement.InfoCtrl).controller('EmployeeCtrl', projectManagement.EmployeeCtrl).controller('MailCtrl', projectManagement.MailCtrl).controller('MessageCtrl', projectManagement.MessageCtrl).config(['localStorageServiceProvider', function (localStorageServiceProvider) {
         localStorageServiceProvider.setPrefix('ls');
     }]).config(function ($routeProvider) {
         $routeProvider.when('/Profile', {
@@ -20,13 +22,16 @@ var projectManagement;
             controller: 'EmployeeCtrl'
         }).when('/Email', {
             templateUrl: 'app/partials/email/email.html',
-            controller: 'MainCtrl'
+            controller: 'MailCtrl'
         }).when('/Chat', {
             templateUrl: 'app/partials/chat/chat.html',
             controller: 'MainCtrl'
         }).when('/Projects', {
             templateUrl: 'app/partials/projects/projects.html',
             controller: 'MainCtrl'
+        }).when('/Send', {
+            templateUrl: 'app/partials/email/sendEmail.html',
+            controller: 'MailCtrl'
         }).when('/', {
             templateUrl: 'app/main/main.html',
             controller: 'MainCtrl'
