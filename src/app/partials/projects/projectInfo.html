@@ -25,12 +25,22 @@ Employees cost: {{vm.employeeCost}}
       <th>Cost $</th>
     </tr>
     <tr class="animate-repeat" ng-repeat="employee in vm.employees">
-      <td>{{employee.Employee.EmployeeInfo.FirstName + " " + employee.Employee.EmployeeInfo.LastName}}</td>
-      <td>{{employee.Employee.EmployeeInfo.Position }}</td>
-      <td>{{employee.Employee.Hours }}</td>
-      <td>{{employee.Employee.Hours *  employee.Employee.Cost }}$</td>
+      <td>{{employee.EmployeeInfo.FirstName + " " + employee.EmployeeInfo.LastName}}</td>
+      <td>{{employee.EmployeeInfo.Position }}</td>
+      <td>{{employee.Hours }}</td>
+      <td>{{employee.Hours *  employee.Cost }}$</td>
     </tr>
     </tbody>
   </table>
+  <span class="dropdown" dropdown on-toggle="toggled(open)">
+      <a href class="dropdown-toggle" dropdown-toggle>
+        Assign employee
+      </a>
+      <ul class="dropdown-menu">
+        <li ng-repeat="employee in vm.employeesAll">
+          <a ng-click="" href>{{employee.EmployeeInfo.FirstName + " " + employee.EmployeeInfo.LastName +' - '+ employee.EmployeeInfo.Position}}</a>
+        </li>
+      </ul>
+  </span>
 </div>
 

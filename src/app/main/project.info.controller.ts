@@ -15,19 +15,21 @@ module projectManagement {
                 private ngDialog){
       $scope.vm = this;
       this.Project = this.projectService.getProjectByCode(this.$routeParams['code']);
-      this.employees = this.filterEmployeesByProjectCode(this.$routeParams['code'])
+      this.employees = this.filterEmployeesByProjectCode(this.$routeParams['code']);
+      this.employeesAll = this.employeeService.getEmployees();
       this.employeeCost = this.calculateCost();
     }
 
     public Project:Project;
     public employeeCost;
     public employees:Array<Employee>;
+    public employeesAll:Array<Employee>;
 
     private filterEmployeesByProjectCode(code:string):Array<Employee>
     {
       var employees = this.employeeService.getEmployees();
       var projectEmployees = this._.filter(employees,(employee)=>{
-        return employee.Employee.ProjectCode == code ? employee : null;
+        return employee.ProjectCode == code ? employee : null;
       });
 
       return projectEmployees;
@@ -37,7 +39,7 @@ module projectManagement {
     {
       var totalCost;
       this._.each(this.employees,(employee)=>{
-       var cost =  (employee.Employee.Hours * employee.Employee.Cost);
+       var cost =  (employee.Hours * employee.Employee.Cost);
         totalCost += cost;
       });
 

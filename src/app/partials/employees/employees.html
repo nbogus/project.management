@@ -20,11 +20,11 @@
       <th></th>
     </tr>
     <tr class="animate-repeat" ng-repeat="employee in vm.employees|filter:search">
-      <td>{{employee.Employee.EmployeeInfo.FirstName}}</td>
-      <td>{{employee.Employee.EmployeeInfo.LastName}}</td>
-      <td>{{employee.Employee.EmployeeInfo.Office}}</td>
-      <td>{{employee.Employee.EmployeeInfo.Position}}</td>
-      <td>{{employee.Employee.EmployeeInfo.Team}}</td>
+      <td>{{employee.EmployeeInfo.FirstName}}</td>
+      <td>{{employee.EmployeeInfo.LastName}}</td>
+      <td>{{employee.EmployeeInfo.Office}}</td>
+      <td>{{employee.EmployeeInfo.Position}}</td>
+      <td>{{employee.EmployeeInfo.Team}}</td>
       <td>
         <button ng-click="vm.openInfo(employee)" class="btn btn-info">Info</button>
         <button ng-click="vm.deleteEmployee(employee)" class="btn btn-danger">Delete</button>

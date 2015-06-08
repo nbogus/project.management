@@ -14,19 +14,20 @@ var projectManagement;
             $scope.vm = this;
             this.Project = this.projectService.getProjectByCode(this.$routeParams['code']);
             this.employees = this.filterEmployeesByProjectCode(this.$routeParams['code']);
+            this.employeesAll = this.employeeService.getEmployees();
             this.employeeCost = this.calculateCost();
         }
         ProjectInfoCtrl.prototype.filterEmployeesByProjectCode = function (code) {
             var employees = this.employeeService.getEmployees();
             var projectEmployees = this._.filter(employees, function (employee) {
-                return employee.Employee.ProjectCode == code ? employee : null;
+                return employee.ProjectCode == code ? employee : null;
             });
             return projectEmployees;
         };
         ProjectInfoCtrl.prototype.calculateCost = function () {
             var totalCost;
             this._.each(this.employees, function (employee) {
-                var cost = (employee.Employee.Hours * employee.Employee.Cost);
+                var cost = (employee.Hours * employee.Employee.Cost);
                 totalCost += cost;
             });
             return totalCost;

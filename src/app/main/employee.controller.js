@@ -16,6 +16,7 @@ var projectManagement;
             this.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
             this.data = [300, 500, 100];
             $scope.vm = this;
+            this.employeeService.initEmployeesData();
             this.employees = this.employeeService.getEmployees() || [];
         }
         EmployeeCtrl.prototype.get = function () {

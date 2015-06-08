@@ -14,7 +14,7 @@ module projectManagement {
                 private ngDialog:any,
                 private employeeService:EmployeeService) {
       $scope.vm = this;
-
+        this.employeeService.initEmployeesData();
        this.employees = this.employeeService.getEmployees() || [];
     }
 

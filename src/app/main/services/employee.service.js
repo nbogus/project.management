@@ -10,30 +10,99 @@ var projectManagement;
             this.localStorageService = localStorageService;
             this._ = _;
             this.employees = [];
-            this.initEmployeesData();
         }
         EmployeeService.prototype.initEmployeesData = function () {
-            /*this.employees = [<Employee>{UserName:'JoeDoe',Password:'password', EmployeeInfo: <EmployeeInfo>{
-                 FirstName:'Joe',LastName:'Doe',Office:'Cracow',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
-                 EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"joe@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}},
-               <Employee>{UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
-                 FirstName:'Adam',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
-                 EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"asmith@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}},
-              <Employee>{UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
-                FirstName:'Adam',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
-                EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"asmith@doe.gmail.com",Department:"Delivery",Team:"AirCanada",Address:"Cracow, Lubicz 23A"}},
-              <Employee>{UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
-                FirstName:'Adam',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
-                EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"asmith@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}},
-              <Employee>{UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
-                FirstName:'Adam',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
-                EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"asmith@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}},
-              <Employee>{UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
-                FirstName:'Adam',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
-                EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"asmith@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}}
-             ];*/
-            this.employees = this.getEmployees() || [];
-            this.saveToLocalStorage(this.employees);
+            if (!this.employees) {
+                this.employees = this.getEmployees() || [];
+                this.saveToLocalStorage(this.employees);
+            }
+            if (this.employees.length == 0) {
+                this.employees = [{ UserName: 'JoeDoe', Password: 'password', EmployeeInfo: {
+                    FirstName: 'Joe',
+                    LastName: 'Doe',
+                    Office: 'Cracow',
+                    Position: 'Associate Consultant',
+                    DateOfBirth: "5-11-1980",
+                    MobilePhone: "765-768-912",
+                    StartDate: "23-11-1990",
+                    EmploymentStatus: "Manager",
+                    ImageUrl: "assets/images/ContactPhoto.png",
+                    EmailAddress: "joe@doe.gmail.com",
+                    Department: "Delivery",
+                    Team: "Remax",
+                    Address: "Cracow, Lubicz 23A"
+                } }, { UserName: 'ASmith', Password: 'password', EmployeeInfo: {
+                    FirstName: 'Adam',
+                    LastName: 'Smith',
+                    Office: 'Wroclaw',
+                    Position: 'Associate Consultant',
+                    DateOfBirth: "5-11-1980",
+                    MobilePhone: "765-768-912",
+                    StartDate: "23-11-1990",
+                    EmploymentStatus: "Manager",
+                    ImageUrl: "assets/images/ContactPhoto.png",
+                    EmailAddress: "asmith@doe.gmail.com",
+                    Department: "Delivery",
+                    Team: "Remax",
+                    Address: "Cracow, Lubicz 23A"
+                } }, { UserName: 'ASmith', Password: 'password', EmployeeInfo: {
+                    FirstName: 'Adam',
+                    LastName: 'Smith',
+                    Office: 'Wroclaw',
+                    Position: 'Associate Consultant',
+                    DateOfBirth: "5-11-1980",
+                    MobilePhone: "765-768-912",
+                    StartDate: "23-11-1990",
+                    EmploymentStatus: "Manager",
+                    ImageUrl: "assets/images/ContactPhoto.png",
+                    EmailAddress: "asmith@doe.gmail.com",
+                    Department: "Delivery",
+                    Team: "AirCanada",
+                    Address: "Cracow, Lubicz 23A"
+                } }, { UserName: 'ASmith', Password: 'password', EmployeeInfo: {
+                    FirstName: 'Adam',
+                    LastName: 'Smith',
+                    Office: 'Wroclaw',
+                    Position: 'Associate Consultant',
+                    DateOfBirth: "5-11-1980",
+                    MobilePhone: "765-768-912",
+                    StartDate: "23-11-1990",
+                    EmploymentStatus: "Manager",
+                    ImageUrl: "assets/images/ContactPhoto.png",
+                    EmailAddress: "asmith@doe.gmail.com",
+                    Department: "Delivery",
+                    Team: "Remax",
+                    Address: "Cracow, Lubicz 23A"
+                } }, { UserName: 'ASmith', Password: 'password', EmployeeInfo: {
+                    FirstName: 'Adam',
+                    LastName: 'Smith',
+                    Office: 'Wroclaw',
+                    Position: 'Associate Consultant',
+                    DateOfBirth: "5-11-1980",
+                    MobilePhone: "765-768-912",
+                    StartDate: "23-11-1990",
+                    EmploymentStatus: "Manager",
+                    ImageUrl: "assets/images/ContactPhoto.png",
+                    EmailAddress: "asmith@doe.gmail.com",
+                    Department: "Delivery",
+                    Team: "Remax",
+                    Address: "Cracow, Lubicz 23A"
+                } }, { UserName: 'ASmith', Password: 'password', EmployeeInfo: {
+                    FirstName: 'Adam',
+                    LastName: 'Smith',
+                    Office: 'Wroclaw',
+                    Position: 'Associate Consultant',
+                    DateOfBirth: "5-11-1980",
+                    MobilePhone: "765-768-912",
+                    StartDate: "23-11-1990",
+                    EmploymentStatus: "Manager",
+                    ImageUrl: "assets/images/ContactPhoto.png",
+                    EmailAddress: "asmith@doe.gmail.com",
+                    Department: "Delivery",
+                    Team: "Remax",
+                    Address: "Cracow, Lubicz 23A"
+                } }];
+            }
         };
         EmployeeService.prototype.saveToLocalStorage = function (employees) {
             this.localStorageService.set("employees", []);
