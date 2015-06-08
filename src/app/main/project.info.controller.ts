@@ -11,7 +11,8 @@ module projectManagement {
                  private $routeParams,
                  private projectService:ProjectService,
                  private employeeService:EmployeeService,
-                private _:any){
+                private _:any,
+                private ngDialog){
       $scope.vm = this;
       this.Project = this.projectService.getProjectByCode(this.$routeParams['code']);
       this.employees = this.filterEmployeesByProjectCode(this.$routeParams['code'])
@@ -42,5 +43,7 @@ module projectManagement {
 
       return totalCost;
     }
+
+
   }
 }

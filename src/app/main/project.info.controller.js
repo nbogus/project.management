@@ -5,11 +5,12 @@ var projectManagement;
 (function (projectManagement) {
     var ProjectInfoCtrl = (function () {
         /* @ngInject */
-        function ProjectInfoCtrl($scope, $routeParams, projectService, employeeService, _) {
+        function ProjectInfoCtrl($scope, $routeParams, projectService, employeeService, _, ngDialog) {
             this.$routeParams = $routeParams;
             this.projectService = projectService;
             this.employeeService = employeeService;
             this._ = _;
+            this.ngDialog = ngDialog;
             $scope.vm = this;
             this.Project = this.projectService.getProjectByCode(this.$routeParams['code']);
             this.employees = this.filterEmployeesByProjectCode(this.$routeParams['code']);

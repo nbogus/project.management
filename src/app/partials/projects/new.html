@@ -1,0 +1,18 @@
+<form>
+  <br>
+  <div class="form-horizontal">
+
+    <span style="display: inline">
+      <label>Project Name:</label> <input  class="form-control" type="text" ng-model="project.ProjectName" />
+      <label>Project Code: </label><input  class="form-control" type="password" ng-model="project.ProjectCode" />
+      <label>Client: </label><input  class="form-control" type="password" ng-model="project.Client" />
+      <label>Description: </label><input  class="form-control" type="password" ng-model="project.Description" />
+      <label>Latest Status: </label><input  class="form-control" type="password" ng-model="project.LatestStatus" />
+      <label>Project Manager: </label><input  class="form-control" type="password" ng-model="project.ProjectManager" />
+    </span>
+
+
+  </div>
+  </br>
+  <button ng-click="vm.addProject(project)" type="submit" class="btn btn-success">Submit</button>
+</form>
