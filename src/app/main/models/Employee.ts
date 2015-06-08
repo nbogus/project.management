@@ -7,7 +7,8 @@ module projectManagement{
 
   export class Employee{
 
-    constructor(public UserName:string,public Password:string, public EmployeeInfo:EmployeeInfo )
+    constructor(public UserName:string,public Password:string, public EmployeeInfo:EmployeeInfo,public ProjectCode,
+                public Hours,public Cost )
     {
 
     }

@@ -5,10 +5,13 @@
 ///<reference path="main\employee.controller.ts"/>
 ///<reference path="main\services\email.service.ts"/>
 ///<reference path="main\mail.controller.ts"/>
+///<reference path="main\services\project.service.ts"/>
+///<reference path="main\project.controller.ts"/>
+///<reference path="main\project.info.controller.ts"/>
 'use strict';
 var projectManagement;
 (function (projectManagement) {
-    angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'ngDialog', 'LocalStorageModule', 'lodash', 'chart.js']).service('employeeService', projectManagement.EmployeeService).service('emailService', projectManagement.EmailService).controller('MainCtrl', projectManagement.MainCtrl).controller('ProfileCtrl', projectManagement.ProfileCtrl).controller('InfoCtrl', projectManagement.InfoCtrl).controller('EmployeeCtrl', projectManagement.EmployeeCtrl).controller('MailCtrl', projectManagement.MailCtrl).controller('MessageCtrl', projectManagement.MessageCtrl).config(['localStorageServiceProvider', function (localStorageServiceProvider) {
+    angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'ngDialog', 'LocalStorageModule', 'lodash', 'chart.js']).service('employeeService', projectManagement.EmployeeService).service('emailService', projectManagement.EmailService).service('projectService', projectManagement.ProjectService).controller('ProjectCtrl', projectManagement.ProjectCtrl).controller('ProjectInfoCtrl', projectManagement.ProjectInfoCtrl).controller('MainCtrl', projectManagement.MainCtrl).controller('ProfileCtrl', projectManagement.ProfileCtrl).controller('InfoCtrl', projectManagement.InfoCtrl).controller('EmployeeCtrl', projectManagement.EmployeeCtrl).controller('MailCtrl', projectManagement.MailCtrl).controller('MessageCtrl', projectManagement.MessageCtrl).config(['localStorageServiceProvider', function (localStorageServiceProvider) {
         localStorageServiceProvider.setPrefix('ls');
     }]).config(function ($routeProvider) {
         $routeProvider.when('/Profile', {
@@ -26,9 +29,12 @@ var projectManagement;
         }).when('/Chat', {
             templateUrl: 'app/partials/chat/chat.html',
             controller: 'MainCtrl'
+        }).when('/Projects/:code', {
+            templateUrl: 'app/partials/projects/projectInfo.html',
+            controller: 'ProjectInfoCtrl'
         }).when('/Projects', {
             templateUrl: 'app/partials/projects/projects.html',
-            controller: 'MainCtrl'
+            controller: 'ProjectCtrl'
         }).when('/Send', {
             templateUrl: 'app/partials/email/sendEmail.html',
             controller: 'MailCtrl'

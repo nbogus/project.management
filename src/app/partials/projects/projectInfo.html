@@ -1,0 +1,36 @@
+<div ng-include="'app/partials/navbar/navbar.html'"></div>
+
+<h1>{{vm.Project.ProjectName}}</h1>
+</br>
+</br>
+<p>{{vm.Project.Description}}</p>
+</br></br></br>
+<ul class="list-unstyled">
+  <li>Client: {{vm.Project.Client}}</br></li>
+  <li>Project Code: {{vm.Project.ProjectCode}}</br></li>
+  <li>LatestStatus: {{vm.Project.LatestStatus}}</br></li>
+  <li>Region: {{vm.Project.Region}}</br></li>
+</ul>
+
+</br></br>
+Employees cost: {{vm.employeeCost}}
+</br></br>
+<div style="width: 50%">
+  <table class="table">
+    <tbody>
+    <tr>
+      <th>Employee</th>
+      <th>Position</th>
+      <th>Hours in {{vm.Project.ProjectCode}}</th>
+      <th>Cost $</th>
+    </tr>
+    <tr class="animate-repeat" ng-repeat="employee in vm.employees">
+      <td>{{employee.Employee.EmployeeInfo.FirstName + " " + employee.Employee.EmployeeInfo.LastName}}</td>
+      <td>{{employee.Employee.EmployeeInfo.Position }}</td>
+      <td>{{employee.Employee.Hours }}</td>
+      <td>{{employee.Employee.Hours *  employee.Employee.Cost }}$</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

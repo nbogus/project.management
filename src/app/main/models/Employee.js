@@ -6,10 +6,13 @@
 var projectManagement;
 (function (projectManagement) {
     var Employee = (function () {
-        function Employee(UserName, Password, EmployeeInfo) {
+        function Employee(UserName, Password, EmployeeInfo, ProjectCode, Hours, Cost) {
             this.UserName = UserName;
             this.Password = Password;
             this.EmployeeInfo = EmployeeInfo;
+            this.ProjectCode = ProjectCode;
+            this.Hours = Hours;
+            this.Cost = Cost;
         }
         return Employee;
     })();

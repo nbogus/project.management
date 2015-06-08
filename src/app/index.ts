@@ -5,6 +5,9 @@
 ///<reference path="main\employee.controller.ts"/>
 ///<reference path="main\services\email.service.ts"/>
 ///<reference path="main\mail.controller.ts"/>
+///<reference path="main\services\project.service.ts"/>
+///<reference path="main\project.controller.ts"/>
+///<reference path="main\project.info.controller.ts"/>
 
 'use strict';
 
@@ -13,13 +16,17 @@ module projectManagement {
 
     .service('employeeService',EmployeeService)
     .service('emailService',EmailService)
+    .service('projectService',ProjectService)
 
+    .controller('ProjectCtrl', ProjectCtrl)
+    .controller('ProjectInfoCtrl', ProjectInfoCtrl)
     .controller('MainCtrl', MainCtrl)
     .controller('ProfileCtrl', ProfileCtrl)
     .controller('InfoCtrl', InfoCtrl)
     .controller('EmployeeCtrl', EmployeeCtrl)
     .controller('MailCtrl', MailCtrl)
     .controller('MessageCtrl', MessageCtrl)
+
 
     .config(['localStorageServiceProvider', function(localStorageServiceProvider){
       localStorageServiceProvider.setPrefix('ls');
@@ -48,9 +55,13 @@ module projectManagement {
         templateUrl: 'app/partials/chat/chat.html',
         controller: 'MainCtrl'
       })
+      .when('/Projects/:code', {
+        templateUrl: 'app/partials/projects/projectInfo.html',
+        controller: 'ProjectInfoCtrl'
+      })
       .when('/Projects', {
         templateUrl: 'app/partials/projects/projects.html',
-        controller: 'MainCtrl'
+        controller: 'ProjectCtrl'
       })
       .when('/Send', {
         templateUrl: 'app/partials/email/sendEmail.html',
