@@ -11,12 +11,13 @@
   <li>LatestStatus: {{vm.Project.LatestStatus}}</br></li>
   <li>Region: {{vm.Project.Region}}</br></li>
 </ul>
+</br></br>
 
-</br></br>
-Employees cost: {{vm.employeeCost}}
-</br></br>
-<div style="width: 50%">
-  <table class="table">
+<section style="float:left;width:50%;display:block">
+  <header>
+    <h4>Project's Participants</h4>
+  </header>
+  <table class="table" style="display: inline-block;">
     <tbody>
     <tr>
       <th>Employee</th>
@@ -32,15 +33,34 @@ Employees cost: {{vm.employeeCost}}
     </tr>
     </tbody>
   </table>
-  <span class="dropdown" dropdown on-toggle="toggled(open)">
-      <a href class="dropdown-toggle" dropdown-toggle>
-        Assign employee
-      </a>
-      <ul class="dropdown-menu">
-        <li ng-repeat="employee in vm.employeesAll">
-          <a ng-click="" href>{{employee.EmployeeInfo.FirstName + " " + employee.EmployeeInfo.LastName +' - '+ employee.EmployeeInfo.Position}}</a>
-        </li>
-      </ul>
-  </span>
-</div>
+</section>
+<section style="float:left;width:50%;display:block">
+  <header>
+    <h4>Project's Tasks</h4>
+  </header>
+  <table class="table" style="display: inline-block;">
+    <tbody>
+    <tr>
+      <th>Task</th>
+      <th>Employee</th>
+      <th>Description</th>
+      <th>Estimation</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th><button class="btn btn-success" ng-click="vm.openNew()">Add task</button></th>
+    </tr>
+    <tr ng-repeat="task in vm.tasks">
+      <td>{{task.TaskName}}</td>
+      <td>{{task.EmployeeName }}</td>
+      <td>{{task.Description }}</td>
+      <td>{{task.Estimation }}</td>
+      <td>{{task.StartDate }}</td>
+      <td>{{task.EndDate }}</td>
+      <td><button class="btn btn-danger" ng-click="vm.removeTask(task)">Add task</button></td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+
+
 

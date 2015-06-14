@@ -1,0 +1,18 @@
+<form>
+  <br>
+  <div class="form-horizontal">
+
+    <span style="display: inline">
+      <label>Task Name:</label> <input  class="form-control" type="text" ng-model="task.TaskName" />
+      <label>Employee: </label><input  class="form-control" type="text" ng-model="task.Employee" />
+      <label>Estimation: </label><input  class="form-control" type="text" ng-model="task.Estimation" />
+      <label>Description: </label><input  class="form-control" type="text" ng-model="task.Description" />
+      <label>Start Date: </label><input  class="form-control" type="date" ng-model="task.StartDate" />
+      <label>End Date: </label><input  class="form-control" type="date" ng-model="task.EndDate" />
+    </span>
+
+
+  </div>
+  </br>
+  <button ng-click="vm.addTask(task)" type="submit" class="btn btn-success">Submit</button>
+</form>

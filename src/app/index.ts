@@ -17,6 +17,7 @@ module projectManagement {
     .service('employeeService',EmployeeService)
     .service('emailService',EmailService)
     .service('projectService',ProjectService)
+    .service('taskService',TaskService)
 
     .controller('ProjectCtrl', ProjectCtrl)
     .controller('ProjectInfoCtrl', ProjectInfoCtrl)
@@ -41,7 +42,7 @@ module projectManagement {
       })
       .when('/Tasks', {
         templateUrl: 'app/partials/tasks/tasks.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProjectInfoCtrl'
       })
       .when('/Employees', {
         templateUrl: 'app/partials/employees/employees.html',

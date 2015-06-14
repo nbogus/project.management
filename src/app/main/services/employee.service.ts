@@ -14,34 +14,33 @@ module projectManagement{
 
     public initEmployeesData()
     {
-      if(!this.employees)
-      {
+
         this.employees = this.getEmployees() || [];
         this.saveToLocalStorage(this.employees);
-      }
 
-      if(this.employees.length == 0)
+
+     /* if(this.employees.length == 0)
       {
-        this.employees = [<Employee>{UserName:'JoeDoe',Password:'password', EmployeeInfo: <EmployeeInfo>{
+        this.employees = [<Employee>{ProjectCode:'RM007',UserName:'JoeDoe',Password:'password', EmployeeInfo: <EmployeeInfo>{
           FirstName:'Joe',LastName:'Doe',Office:'Cracow',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
           EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"joe@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}},
-          <Employee>{UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
-            FirstName:'Adam',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
+          <Employee>{ProjectCode:'RM007',UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
+            FirstName:'John',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
             EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"asmith@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}},
-          <Employee>{UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
-            FirstName:'Adam',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
+          <Employee>{ProjectCode:'RM007',UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
+            FirstName:'Elene',LastName:'Pol',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
             EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"asmith@doe.gmail.com",Department:"Delivery",Team:"AirCanada",Address:"Cracow, Lubicz 23A"}},
-          <Employee>{UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
-            FirstName:'Adam',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
+          <Employee>{ProjectCode:'RM007',UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
+            FirstName:'Lukas',LastName:'Kowalski',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
             EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"asmith@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}},
-          <Employee>{UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
-            FirstName:'Adam',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
+          <Employee>{ProjectCode:'RM007',UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
+            FirstName:'Cate',LastName:'Milton',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
             EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"asmith@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}},
-          <Employee>{UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
-            FirstName:'Adam',LastName:'Smith',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
+          <Employee>{ProjectCode:'RM007',UserName:'ASmith',Password:'password', EmployeeInfo: <EmployeeInfo>{
+            FirstName:'Erick',LastName:'Garner',Office:'Wroclaw',Position:'Associate Consultant',DateOfBirth:"5-11-1980",MobilePhone:"765-768-912",StartDate:"23-11-1990",
             EmploymentStatus:"Manager", ImageUrl:"assets/images/ContactPhoto.png", EmailAddress:"asmith@doe.gmail.com",Department:"Delivery",Team:"Remax",Address:"Cracow, Lubicz 23A"}}
         ];
-      }
+      }*/
     }
 
     private saveToLocalStorage(employees:Array<Employee>)
@@ -69,6 +68,15 @@ module projectManagement{
     {
       this.employees.push(employee);
       this.saveToLocalStorage(this.employees);
+    }
+
+    public updateEmployee(employee:Employee)
+    {
+      var emp = this._.filter(this.employees,(e:Employee)=>
+                                 {return e.UserName != employee.UserName;},employee);
+
+      this.addEmployee(employee);
+
     }
 
   }

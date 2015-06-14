@@ -11,7 +11,7 @@
 'use strict';
 var projectManagement;
 (function (projectManagement) {
-    angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'ngDialog', 'LocalStorageModule', 'lodash', 'chart.js']).service('employeeService', projectManagement.EmployeeService).service('emailService', projectManagement.EmailService).service('projectService', projectManagement.ProjectService).controller('ProjectCtrl', projectManagement.ProjectCtrl).controller('ProjectInfoCtrl', projectManagement.ProjectInfoCtrl).controller('MainCtrl', projectManagement.MainCtrl).controller('ProfileCtrl', projectManagement.ProfileCtrl).controller('InfoCtrl', projectManagement.InfoCtrl).controller('EmployeeCtrl', projectManagement.EmployeeCtrl).controller('MailCtrl', projectManagement.MailCtrl).controller('MessageCtrl', projectManagement.MessageCtrl).config(['localStorageServiceProvider', function (localStorageServiceProvider) {
+    angular.module('projectManagement', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'ui.bootstrap', 'ngDialog', 'LocalStorageModule', 'lodash', 'chart.js']).service('employeeService', projectManagement.EmployeeService).service('emailService', projectManagement.EmailService).service('projectService', projectManagement.ProjectService).service('taskService', projectManagement.TaskService).controller('ProjectCtrl', projectManagement.ProjectCtrl).controller('ProjectInfoCtrl', projectManagement.ProjectInfoCtrl).controller('MainCtrl', projectManagement.MainCtrl).controller('ProfileCtrl', projectManagement.ProfileCtrl).controller('InfoCtrl', projectManagement.InfoCtrl).controller('EmployeeCtrl', projectManagement.EmployeeCtrl).controller('MailCtrl', projectManagement.MailCtrl).controller('MessageCtrl', projectManagement.MessageCtrl).config(['localStorageServiceProvider', function (localStorageServiceProvider) {
         localStorageServiceProvider.setPrefix('ls');
     }]).config(function ($routeProvider) {
         $routeProvider.when('/Profile', {
@@ -19,7 +19,7 @@ var projectManagement;
             controller: 'ProfileCtrl'
         }).when('/Tasks', {
             templateUrl: 'app/partials/tasks/tasks.html',
-            controller: 'ProfileCtrl'
+            controller: 'ProjectInfoCtrl'
         }).when('/Employees', {
             templateUrl: 'app/partials/employees/employees.html',
             controller: 'EmployeeCtrl'
